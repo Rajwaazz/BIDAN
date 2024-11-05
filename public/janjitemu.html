@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Daftar Konsultasi | DentalPro</title>
+    <link
+      href="https://d33wubrfki0l68.cloudfront.net/css/d9b5bc0170410859ddcaea7f3c3a80e070bcbc68/build/tailwind.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="antialiased font-sans text-gray-900">
+    <main>
+      <section class="flex flex-col md:flex-row h-screen items-center">
+        <div
+          class="bg-blue-600 w-full md:max-w-md lg:max-w-full md:mx-auto md:w-1/2 h-screen px-6 lg:px-16 xl:px-24 flex items-center justify-center"
+        >
+          <div class="w-full h-100">
+            <a class="font-bold text-1xl" href="index.html">PMB DYAH SUMARMO</a>
+
+            <h1 class="text-xl md:text-3xl font-bold leading-tight mt-10">
+              Daftar Konsultasi Anda
+            </h1>
+
+            <form class="mt-6" action="{{ route('pasien.store') }}" method="POST">
+              <!-- Nama dan NIK -->
+              <div class="flex flex-wrap -mx-2 mb-4">
+                <div class="w-1/2 px-2">
+                  <label class="block text-black" for="name">Nama</label>
+                  <input
+                    type="text"
+                    name="nama"
+                    placeholder="Nama"
+                    class="w-full px-4 py-3 rounded bg-blue-100 mt-1 border focus:border-blue-500 focus:bg-white focus:outline-none"
+                    required
+                  />
+                </div>
+                <div class="w-1/2 px-2">
+                  <label class="block text-black" for="nik">NIK</label>
+                  <input
+                    type="text"
+                    name="nik"
+                    placeholder="NIK"
+                    class="w-full px-4 py-3 rounded bg-blue-100 mt-1 border focus:border-blue-500 focus:bg-white focus:outline-none"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- Tanggal Lahir dan Jenis Kelamin -->
+              <div class="flex flex-wrap -mx-2 mb-4">
+                <div class="w-1/2 px-2">
+                  <label class="block text-black" for="birthdate">Tanggal Lahir</label>
+                  <input
+                    type="date"
+                    name="tanggalLahir"
+                    class="w-full px-4 py-3 rounded bg-blue-100 mt-1 border focus:border-blue-500 focus:bg-white focus:outline-none"
+                    required
+                  />
+                </div>
+                <div class="w-1/2 px-2">
+                  <label class="block text-black" for="gender">Jenis Kelamin</label>
+                  <select
+                    name="jenisKelamin"
+                    class="w-full px-4 py-4 rounded bg-blue-100 border mt-1 focus:border-blue-500 focus:bg-white focus:outline-none"
+                    required
+                  >
+                    <option value="L">Laki-laki</option>
+                    <option value="P">Perempuan</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- No. Telepon dan Layanan -->
+              <div class="flex flex-wrap -mx-2 mb-4">
+                <div class="w-1/2 px-2">
+                  <label class="block text-black" for="phone">No. Telepon</label>
+                  <input
+                    type="text"
+                    name="phone"
+                    placeholder="No. Telepon"
+                    class="w-full px-4 py-3 rounded bg-blue-100 mt-1 border focus:border-blue-500 focus:bg-white focus:outline-none"
+                    required
+                  />
+                </div>
+                <div class="w-1/2 px-2">
+                  <label class="block text-black" for="service">Layanan</label>
+                  <select
+                    name="layanan"
+                    class="w-full px-4 py-4 rounded bg-blue-100 border mt-1 focus:border-blue-500 focus:bg-white focus:outline-none"
+                    required
+                  >
+                    <option value="">Pilih Layanan</option>
+                    <option value="konsultasi">Konsultasi Umum</option>
+                    <option value="pembersihan">Pembersihan Gigi</option>
+                    <option value="perawatan">Perawatan Saluran Akar</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Keluhan -->
+              <div class="flex flex-wrap -mx-2 mb-4">
+                <label class="block text-black px-2`7" for="complaint">Keluhan</label>
+                <textarea
+                  name="keluhan"
+                  placeholder="Keluhan Anda"
+                  class="w-full px-4 py-3 rounded bg-blue-100 mt-1 border focus:border-blue-500 focus:bg-white focus:outline-none resize-none"
+                  rows="3"
+                  required
+                ></textarea>
+              </div>
+
+              <!-- Tanggal Konsultasi dan Waktu Konsultasi -->
+              <div class="flex flex-wrap -mx-2 mb-4">
+                <div class="w-1/2 px-2">
+                  <label class="block text-black" for="date">Pilih Tanggal Konsultasi</label>
+                  <input
+                    type="date"
+                    id="tanggalPesan"
+                    name="tanggalPesan"
+                    class="w-full px-4 py-3 rounded bg-blue-100 mt-1 border focus:border-blue-500 focus:bg-white focus:outline-none"
+                    required
+                  />
+                </div>
+                <div class="w-1/2 px-2">
+                  <label class="block text-black" for="schedule_id">Pilih Waktu Konsultasi</label>
+                  <select
+                    id="jadwal_id"
+                    name="jadwal_id"
+                    class="w-full px-4 py-4 rounded bg-blue-100 border mt-1 focus:border-blue-500 focus:bg-white focus:outline-none"
+                    required
+                  >
+                    <option value="">Pilih Waktu</option>
+                  </select>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full bg-blue-300 hover:bg-blue-400 focus:bg-blue-400 text-black font-semibold rounded px-4 py-3 mt-4"
+              >
+                Daftar Konsultasi
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Bagian Gambar -->
+        <div class="hidden lg:block w-full md:w-1/2 h-screen">
+          <img
+            src="images/formkonsul.jpg"
+            alt=""
+            class="w-full h-screen object-cover"
+          />
+        </div>
+      </section>
+    </main>
+
+    <!-- Script untuk Mengambil Data Jadwal -->
+    <script>
+      document.getElementById('tanggalPesan').addEventListener('change', function () {
+        let selectedDate = this.value;
+        let jadwalSelect = document.getElementById('jadwal_id');
+
+        jadwalSelect.innerHTML = '<option value="">Memuat jadwal...</option>';
+
+        fetch(`/jadwal-available?date=${selectedDate}`)
+          .then(response => response.json())
+          .then(data => {
+            jadwalSelect.innerHTML = '';
+
+            if (data.length > 0) {
+              data.forEach(item => {
+                jadwalSelect.innerHTML += `<option value="${item.jadwal_id}">${item.time} - ${item.status}</option>`;
+              });
+            } else {
+              jadwalSelect.innerHTML = '<option value="">Tidak ada jadwal tersedia</option>';
+            }
+          })
+          .catch(error => console.error('Error:', error));
+      });
+    </script>
+  </body>
+</html>
